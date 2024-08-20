@@ -12,4 +12,5 @@ git clone https://github.com/vial-kb/via-keymap-precompiled.git
 ./build-deps.sh
 cd src
 ./build.sh
+test2
 ```
