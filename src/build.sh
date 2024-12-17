@@ -10,7 +10,7 @@ rm -rf build/*
 
 pushd build
 
-VIAL_VER=$(cd ../../vial-gui/ && git rev-parse HEAD)
+VIAL_VER=$(cd ../../vial-gui-custom/ && git rev-parse HEAD)
 WEB_VER=$(git rev-parse HEAD)
 VIA_STACK_VER=$(cd ../../via-keymap-precompiled/ && git rev-parse HEAD)
 UNIQVER=$(echo ${VIAL_VER} ${WEB_VER} ${VIA_STACK_VER} | sha256sum | awk '{print $1}')
@@ -18,9 +18,9 @@ UNIQVER=$(echo ${VIAL_VER} ${WEB_VER} ${VIA_STACK_VER} | sha256sum | awk '{print
 cp ../icon.png .
 cp -r ../../deps/cpython/builddir/emscripten-browser/usr .
 cp ../../via-keymap-precompiled/via_keyboard_stack.json usr/local/via_keyboards.json
-cp ../../vial-gui/src/main/resources/base/qmk_settings.json usr/local
-cp ../../vial-gui/src/build/settings/base.json usr/local/build_settings.json
-cp -r ../../vial-gui/src/main/python/* usr/local/lib/python3.11
+cp ../../vial-gui-custom/src/main/resources/base/qmk_settings.json usr/local
+cp ../../vial-gui-custom/src/build/settings/base.json usr/local/build_settings.json
+cp -r ../../vial-gui-custom/src/main/python/* usr/local/lib/python3.11
 cp ../simpleeval.py usr/local/lib/python3.11
 emcc \
     --preload-file="./usr/local" \
